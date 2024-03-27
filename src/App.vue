@@ -1,26 +1,56 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app">
+    <ToDos v-bind:todoEntries = "todoEntries"/>
+    <SubmitForm @add-object="addToDoItem"/>
+    <!--<button type = "submit" style="background-color: blue; color: white;">Submit</button>-->
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import ToDos from './components/ToDos'
+import SubmitForm from './components/SubmitForm'
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ToDos,
+    SubmitForm
+  },
+  data() {
+    return {
+      todoEntries: [
+        {
+          id: 1,
+          title: "Check email",
+          completed: false
+        },
+        {
+          id: 2,
+          title: "Reply to Laura",
+          completed: false
+        },
+        {
+          id: 3,
+          title: "Call mom",
+          completed: false
+        },
+      ],
+    }
+  },
+
+  methods: {
+    addToDoItem(newToDoItem) {
+      if(newToDoItem.title !==''){
+        this.todoEntries.push(newToDoItem);
+      }
+      else{
+        console.log("empty")
+      }
+      
+    }
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
