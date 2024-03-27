@@ -1,6 +1,7 @@
 <template>
     <form>
         <input type="text" v-model="title">
+        <input type="date" v-model="dueDate">
         <button @click="addToDo">Submit</button>
     </form>
 </template>
@@ -13,7 +14,8 @@ export default {
        // name: 'AddToDoButton',
         data(){
             return {
-                title: ''
+                title: '',
+                dueDate: 'N/A'
             }
         },
             methods: {
@@ -23,11 +25,13 @@ export default {
                     { 
                         id: uuidv4() ,
                         title: this.title,
-                        completed: false
+                        completed: false,
+                        dueDate: this.dueDate
                         
                     }; 
                     this.$emit('add-object', newTodo);
                     this.title='';
+                    this.dueDate='N/A';
                     
                 }
 

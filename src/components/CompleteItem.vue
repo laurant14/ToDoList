@@ -1,34 +1,28 @@
 <script>
-import ToDoItem from "./ToDoItem";
+import CompletedItem from "./CompletedItem";
 
 export default {
     data(){
         return{
         }
     },
-    name: 'ToDos',
+    name: 'CompleteItem',
     components: {
-        ToDoItem
+        CompletedItem
     },
     props: [
-        "todoEntries"
-    ],
-    // methods: {
-    //   handleToggleCompleted(todoItem, value){
-    //     this.$emit('toggle-completed', todoItem, value);
-    //   }
-    // }
+        "completedEntries"
+    ]
 }
 </script>
 
 <template>
   <div>
     <div>
-      <h1> My To Do List:</h1>
+      <h1>Done:</h1>
       <ul>
-        <li v-bind:key="item.id" v-for="item in todoEntries">
-          <ToDoItem v-bind:todoItem="item" />
-          <!--<ToDoItem @toggle-completed="handleToggleCompleted"></ToDoItem>-->
+        <li v-bind:key="completed.id" v-for="completed in completedEntries">
+          <CompletedItem v-bind:completedItem="completed" />
         </li>
       </ul>
     </div>
