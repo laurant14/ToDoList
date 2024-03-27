@@ -31,8 +31,8 @@ export default {
 <style scoped>
 
 ul {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 60px;
+    margin-right: 60px;
     margin-bottom:50px;
     text-align: left;
     list-style: none;
