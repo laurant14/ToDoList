@@ -28,7 +28,7 @@ export default {
     </div>
 </template>
 
-<style>
+<style scoped>
 
 ul {
     margin-left: 100px;
@@ -38,6 +38,10 @@ ul {
     list-style: none;
     border-block: blue;
     border-block-color: blue;
+}
+
+h1 {
+    margin-bottom: 60px;
 }
     
 </style>

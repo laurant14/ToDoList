@@ -2,7 +2,9 @@
     <div>
     <label>
       <input type="checkbox" v-model="completed"> 
-      {{ todoItem.title }}
+      {{ todoItem.title }} 
+          <pre> Due: {{ todoItem.dueDate }} 
+          </pre>
     </label>
     </div>
 </template>

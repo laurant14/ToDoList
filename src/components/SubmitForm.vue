@@ -23,7 +23,8 @@ export default {
                     { 
                         id: uuidv4() ,
                         title: this.title,
-                        completed: false
+                        completed: false,
+                        dueDate: '2024-04-01'
                         
                     }; 
                     this.$emit('add-object', newTodo);
