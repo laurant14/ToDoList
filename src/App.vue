@@ -2,17 +2,22 @@
   <div id="app">
     <ToDos v-bind:todoEntries = "todoEntries"/>
     <SubmitForm @add-object="addToDoItem"/>
+    <CompleteItem v-bind:completedEntries = "completedEntries"/>
+   <!-- <ToDos :todoEntries="todoEntries" @toggle-completed="handleToggleCompleted" />-->
+    
     <!--<button type = "submit" style="background-color: blue; color: white;">Submit</button>-->
   </div>
 </template>
 
 <script>
 import ToDos from './components/ToDos'
+import CompleteItem from './components/CompleteItem'
 import SubmitForm from './components/SubmitForm'
 export default {
   name: 'App',
   components: {
     ToDos,
+    CompleteItem,
     SubmitForm
   },
   data() {
@@ -37,6 +42,20 @@ export default {
           dueDate: '2024-05-23'
         },
       ],
+      completedEntries: [
+        {
+          id: 10,
+          title: "write app",
+          completed: true,
+          dueDate: '2024-03-01'
+        },
+                {
+          id: 11,
+          title: "write book",
+          completed: true,
+          dueDate: '2024-03-01'
+        },
+      ]
     }
   },
 
@@ -49,7 +68,16 @@ export default {
         console.log("empty")
       }
       
-    }
+    },
+    // addCompletedItem(newCompletedItem) {
+    //   if(newCompletedItem.title !=='' && newCompletedItem.complete == true){
+    //     this.completedEntries.push(newCompletedItem);
+    //   }
+    //   else{
+    //     console.log("empty")
+    //   }
+      
+    // }
   },
 }
 </script>

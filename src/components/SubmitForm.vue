@@ -31,7 +31,7 @@ export default {
                     }; 
                     this.$emit('add-object', newTodo);
                     this.title='';
-                    this.dueDate='';
+                    this.dueDate='N/A';
                     
                 }
 
