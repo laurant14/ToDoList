@@ -19,7 +19,7 @@ export default {
 
 <template>
     <div>
-        <h1> My ToDo List:</h1>
+        <h1> My To Do List:</h1>
         <ul>
             <li v-bind:key="item.id" v-for="item in todoEntries">
                 <ToDoItem v-bind:todoItem="item" />
@@ -27,3 +27,17 @@ export default {
         </ul>
     </div>
 </template>
+
+<style>
+
+ul {
+    margin-left: 100px;
+    margin-right: 100px;
+    margin-bottom:50px;
+    text-align: left;
+    list-style: none;
+    border-block: blue;
+    border-block-color: blue;
+}
+    
+</style>

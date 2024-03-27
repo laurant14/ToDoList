@@ -52,5 +52,26 @@ export default {
 </script>
 
 <style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+
+body {
+  margin-left: 500px;
+  margin-right:500px;
+
+  background: #eee;
+  margin-top: 60px;
+  border: 2px solid black;
+  padding-block: 50px;
+
+}
+
+/* div {
+  text-align: left;
+} */
 
 </style>
