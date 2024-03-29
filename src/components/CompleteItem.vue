@@ -19,7 +19,7 @@ export default {
 <template>
   <div>
     <div>
-      <h1>Done:</h1>
+      <h2>Completed:</h2>
       <ul>
         <li v-bind:key="completed.id" v-for="completed in completedEntries">
           <CompletedItem v-bind:completedItem="completed" />
@@ -49,6 +49,10 @@ li {
 
 h1 {
     margin-bottom: 60px;
+}
+
+h2 {
+    margin-top: 60px;
 }
     
 </style>
