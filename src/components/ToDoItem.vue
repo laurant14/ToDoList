@@ -2,6 +2,7 @@
   <div>
     <label>
       <input type="checkbox" v-model="isChecked">
+      {{ isChecked }}
       {{ todoItem.title }} 
       <pre> Due: {{ todoItem.dueDate }} </pre>
     </label>

@@ -4,6 +4,7 @@ import CompletedItem from "./CompletedItem";
 export default {
     data(){
         return{
+          tempCompleted: []
         }
     },
     name: 'CompleteItem',
@@ -12,7 +13,15 @@ export default {
     },
     props: [
         "completedEntries"
-    ]
+    ],
+
+    methods: {
+      deleteCompleted(id) {
+      // Filter out the todo item with the specified id and update the todoEntries array
+      this.tempCompleted = this.completedEntries.filter(completed => completed.id !== id);
+      this.$emit('updated-completed', this.tempCompleted);
+    }
+    }
 }
 </script>
 
@@ -23,8 +32,10 @@ export default {
       <ul>
         <li v-bind:key="completed.id" v-for="completed in completedEntries">
           <CompletedItem v-bind:completedItem="completed" />
+          <button @click = "deleteCompleted(completed.id)">delete</button>
         </li>
       </ul>
+      <p1> {{ this.tempCompleted }} </p1>
     </div>
   </div>
 </template>

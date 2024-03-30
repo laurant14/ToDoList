@@ -3,7 +3,7 @@
     <ToDos v-bind:todoEntries = "todoEntries" @updated-todos="updateToDos"/>
 
     <SubmitForm @add-object="addToDoItem"/>
-    <CompleteItem v-bind:completedEntries = "completedEntries"/>
+    <CompleteItem v-bind:completedEntries = "completedEntries" @updated-completed="updateCompleted"/>
   
   </div>
 </template>
@@ -71,6 +71,9 @@ export default {
     },
     updateToDos(newToDoArray){
       this.todoEntries = newToDoArray;
+    },
+    updateCompleted(newCompletedArray){
+      this.completedEntries = newCompletedArray;
     },
 
       // addCompletedItem(completedItem) {
