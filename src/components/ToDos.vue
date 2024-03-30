@@ -10,12 +10,12 @@
           <ToDoItem v-bind:todoItem="item" />
           <!--<ToDoItem @add-to-completed="updateCompleted"/>-->
           <button @click = "deleteToDo(item.id)">delete</button>
-          <button>edit</button>
+          <!--<button>edit</button>-->
           <!--<ToDoItem @toggle-completed="handleToggleCompleted"></ToDoItem>-->
         </li>
       </ul>
     </div>
-    <p1>tempcompleted:{{this.tempCompleted}}</p1>
+    <!--<p1>tempcompleted:{{this.tempCompleted}}</p1>-->
   </div>
 </template>
 
@@ -59,21 +59,26 @@ export default {
 <style scoped>
 
 ul {
-    margin-bottom:50px;
-    text-align: left;
-    list-style: none;
-    border-block: blue;
-    border-block-color: blue;
+  margin-bottom: 50px;
+  text-align: left;
+  list-style: none;
+  border-block: blue;
+  border-block-color: blue;
 }
 
 li {
-
-    margin-left: 60px;
-    margin-right: 60px;
+  margin-left: 60px;
+  margin-right: 60px;
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Align items along the main axis with space between them */
 }
 
-h1 {
-    margin-bottom: 60px;
+button {
+  /* Set buttons to display inline-block */
+  display: inline-block;
+  width: 50px; /* Set width */
+  height: 30px; /* Set height */
 }
+
     
 </style>

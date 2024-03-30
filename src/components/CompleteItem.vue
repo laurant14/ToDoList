@@ -35,7 +35,6 @@ export default {
           <button @click = "deleteCompleted(completed.id)">delete</button>
         </li>
       </ul>
-      <p1> {{ this.tempCompleted }} </p1>
     </div>
   </div>
 </template>
@@ -45,17 +44,25 @@ export default {
 <style scoped>
 
 ul {
-    margin-bottom:50px;
-    text-align: left;
-    list-style: none;
-    border-block: blue;
-    border-block-color: blue;
+  margin-bottom: 50px;
+  text-align: left;
+  list-style: none;
+  border-block: blue;
+  border-block-color: blue;
 }
 
 li {
+  margin-left: 60px;
+  margin-right: 60px;
+  display: flex; /* Use flexbox */
+  justify-content: space-between; /* Align items along the main axis with space between them */
+}
 
-    margin-left: 60px;
-    margin-right: 60px;
+button {
+  /* Set buttons to display inline-block */
+  display: inline-block;
+  width: 50px; /* Set width */
+  height: 30px; /* Set height */
 }
 
 h1 {
