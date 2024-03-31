@@ -1,4 +1,6 @@
 # my-vue-app
+## Description
+Simple ToDo app to input todo items, set a due date, and check them off when completed.  Can delete todo items.
 
 ## Project setup
 ```
