@@ -1,7 +1,9 @@
 <template>
     <div>
     <label>
+      <input type="checkbox" v-model="isChecked">
       <!--<input type="checkbox" v-model="completed">-->
+      {{ isChecked }}
       {{ completedItem.title }} 
     </label>
     </div>
@@ -13,6 +15,11 @@
 
 
 export default {
+  data() {
+    return {
+      isChecked: true
+    }
+  },
   name: 'CompletedItem',
   props: [
       "completedItem"

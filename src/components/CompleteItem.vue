@@ -28,11 +28,12 @@ export default {
 <template>
   <div>
     <div>
-      <h2>Completed:</h2>
+      <h2 v-if="completedEntries.length > 0">Completed:</h2>
       <ul>
         <li v-bind:key="completed.id" v-for="completed in completedEntries">
           <CompletedItem v-bind:completedItem="completed" />
-          <button @click = "deleteCompleted(completed.id)">delete</button>
+          <button @click = "deleteCompleted(completed.id)">Delete</button>
+          <button>Edit</button>
         </li>
       </ul>
     </div>
@@ -52,17 +53,21 @@ ul {
 }
 
 li {
-  margin-left: 60px;
+  margin-left: 20px;
   margin-right: 60px;
   display: flex; /* Use flexbox */
   justify-content: space-between; /* Align items along the main axis with space between them */
 }
 
+
 button {
-  /* Set buttons to display inline-block */
+  display: none;
+}
+
+li:hover button {
   display: inline-block;
-  width: 50px; /* Set width */
-  height: 30px; /* Set height */
+  width: 60px; /* Set width */
+  height: 25px; /* Set height */
 }
 
 h1 {

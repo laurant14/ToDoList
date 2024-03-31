@@ -10,14 +10,12 @@
 
 <script>
 import ToDos from './components/ToDos'
-//import ToDoItem from './components/ToDoItem'
 import CompleteItem from './components/CompleteItem'
 import SubmitForm from './components/SubmitForm'
 export default {
   name: 'App',
   components: {
     ToDos,
-    //ToDoItem,
     CompleteItem,
     SubmitForm
   },
@@ -75,22 +73,8 @@ export default {
     updateCompleted(newCompletedArray){
       this.completedEntries = newCompletedArray;
     },
-
-      // addCompletedItem(completedItem) {
-      //   this.completedEntries.push(completedItem);
-
-      
       
     },
-    // addCompletedItem(newCompletedItem) {
-    //   if(newCompletedItem.title !=='' && newCompletedItem.complete == true){
-    //     this.completedEntries.push(newCompletedItem);
-    //   }
-    //   else{
-    //     console.log("empty")
-    //   }
-      
-    // }
   }
 
 </script>
