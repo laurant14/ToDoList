@@ -5,14 +5,14 @@
     <div>
       <h1> My To Do List:</h1>
       <ul>
-        <!--<ToDoItem @checkbox-changed = "handleToggleCompleted"/>-->
         <li v-bind:key="item.id" v-for="item in todoEntries" >
           <ToDoItem v-bind:todoItem="item"/>
-          <!--<ToDoItem @add-to-completed="updateCompleted"/>-->
-          <button @click = "deleteToDo(item.id)">Delete</button>
-          <button @click = "clicked">Edit</button>
-          <!--<ToDoItem @toggle-completed="handleToggleCompleted"></ToDoItem>-->
+          <div class ="button-container">
+          <button @click = "deleteToDo(item.id)"><i class="fas fa-trash-alt"></i></button>
+          <button @click = "clicked"><i class="fas fa-pencil-alt"></i></button>
+          </div>
         </li>
+
       </ul>
     </div>
     <!--<p1>tempcompleted:{{this.tempCompleted}}</p1>-->
@@ -27,6 +27,7 @@ export default {
     data(){
         return{
           complete: false,
+          pastDue: true,
           //hoveredIndex: null,
           clicked: false,
           tempToDos: [],
@@ -88,10 +89,9 @@ li {
 }
 
 button {
-  /* Set buttons to display inline-block */
   display: none;
-  width: 60px; /* Set width */
-  height: 25px; /* Set height */
+  width: 30px; 
+  height: 25px; 
 }
 
 h1 {
@@ -99,12 +99,25 @@ h1 {
   margin-top: 0px;
 }
 
-
-
 li:hover button {
   display: inline-block;
   align-content: relative;
 }
+
+.late {
+  color: red;
+}
+
+.button-container {
+  text-align: right; /* Align buttons to the right */
+}
+
+.button-container button {
+  margin-left: 5px; /* Adjust margin between buttons */
+  float: right; /* Float buttons to the right */
+}
+
+
 
     
 </style>

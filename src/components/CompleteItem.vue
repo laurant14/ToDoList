@@ -32,8 +32,10 @@ export default {
       <ul>
         <li v-bind:key="completed.id" v-for="completed in completedEntries">
           <CompletedItem v-bind:completedItem="completed" />
-          <button @click = "deleteCompleted(completed.id)">Delete</button>
-          <button>Edit</button>
+          <div class = "button-container">
+          <button @click = "deleteCompleted(completed.id)"><i class="fas fa-trash-alt"></i></button>
+          <button><i class="fas fa-pencil-alt"></i></button>
+          </div>
         </li>
       </ul>
     </div>
@@ -66,7 +68,7 @@ button {
 
 li:hover button {
   display: inline-block;
-  width: 60px; /* Set width */
+  width: 30px; /* Set width */
   height: 25px; /* Set height */
 }
 
@@ -76,6 +78,15 @@ h1 {
 
 h2 {
     margin-top: 60px;
+}
+
+.button-container {
+  text-align: right; /* Align buttons to the right */
+}
+
+.button-container button {
+  margin-left: 5px; /* Adjust margin between buttons */
+  float: right; /* Float buttons to the right */
 }
     
 </style>
