@@ -1,11 +1,10 @@
 <template>
   <div id="app">
-    <ToDos v-bind:todoEntries = "todoEntries"/>
+    <ToDos v-bind:todoEntries = "todoEntries" @updated-todos="updateToDos"/>
+
     <SubmitForm @add-object="addToDoItem"/>
-    <CompleteItem v-bind:completedEntries = "completedEntries"/>
-   <!-- <ToDos :todoEntries="todoEntries" @toggle-completed="handleToggleCompleted" />-->
-    
-    <!--<button type = "submit" style="background-color: blue; color: white;">Submit</button>-->
+    <CompleteItem v-bind:completedEntries = "completedEntries" @updated-completed="updateCompleted"/>
+  
   </div>
 </template>
 
@@ -67,19 +66,17 @@ export default {
       else{
         console.log("empty")
       }
+    },
+    updateToDos(newToDoArray){
+      this.todoEntries = newToDoArray;
+    },
+    updateCompleted(newCompletedArray){
+      this.completedEntries = newCompletedArray;
+    },
       
     },
-    // addCompletedItem(newCompletedItem) {
-    //   if(newCompletedItem.title !=='' && newCompletedItem.complete == true){
-    //     this.completedEntries.push(newCompletedItem);
-    //   }
-    //   else{
-    //     console.log("empty")
-    //   }
-      
-    // }
-  },
-}
+  }
+
 </script>
 
 <style>
@@ -99,10 +96,7 @@ body {
   border: 2px solid black;
   padding-block: 50px;
 
-}
+} 
 
-/* div {
-  text-align: left;
-} */
 
 </style>

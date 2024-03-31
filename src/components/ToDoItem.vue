@@ -1,35 +1,37 @@
 <template>
-    <div>
+  <div>
     <label>
-      <input type="checkbox" v-model="completed">
+      <input type="checkbox" v-model="isChecked">
+      {{ isChecked }}
       {{ todoItem.title }} 
-          <pre> Due: {{ todoItem.dueDate }} 
-          </pre>
+      <pre> Due: {{ todoItem.dueDate }} </pre>
     </label>
-    </div>
+  </div>
 </template>
 
-
 <script>
-
 export default {
+  data() {
+    return {
+      //v-model automatically handles the change of isChecked, so we don't need an event handler
+      isChecked: false,
+    }
+  },
   name: 'ToDoItem',
-  props: ["todoItem"],
-  computed: {
-    completed: {
-      get() {
-        return this.todoItem.completed;
-      },
-      
-      set(value) {
-        // Emit an event to notify parent component of checkbox state change
-        //this will be useful when i want to go delete things from the checklist
-        this.$emit('toggle-completed', value);
+  props: [
+    "todoItem"
+  ],  
+  watch: {
+    isChecked(newVal) {
+      if (newVal) {
+        // If isChecked is true, add the todoItem to CompletedArray
+        this.$emit('add-to-completed', this.todoItem);
+      } else {
+        // If isChecked is false, remove the todoItem from CompletedArray
+        this.$emit('remove-from-completed', this.todoItem);
       }
     }
   }
 }
 
-
 </script>
-
